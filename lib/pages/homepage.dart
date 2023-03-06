@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Generate you invoices here"),
+            const Text("Generate you invoices here"),
             ElevatedButton(onPressed: () async {
               final date = DateTime.now();
               final dueDate = date.add(const Duration(days: 7));
@@ -33,11 +33,8 @@ class _HomePageState extends State<HomePage> {
                   supplier: const Supplier(name: "Amol Dange", address: "Sakharale", paymentInfo: "Cash"),
                   customer: const Customer(name: "Marketingwala CJ", address: "Islmapur"),
                   items: [
-                    InvoiceItem(description: "Manforce", date: date, quantity: 4, vat: 5, unitPrice: 20),
-                    InvoiceItem(description: "Viagra", date: date, quantity: 6, vat: 5, unitPrice: 80),
-                    InvoiceItem(description: "Room Rent", date: date, quantity: 1, vat: 5, unitPrice: 500),
-                    InvoiceItem(description: "Bacardi", date: date, quantity: 1, vat: 5, unitPrice: 1500),
-                    InvoiceItem(description: "Petrol", date: date, quantity: 1, vat: 0, unitPrice: 200),
+                    InvoiceItem(description: "Coffee", date: date, quantity: 3, vat: 5, unitPrice: 20),
+                    InvoiceItem(description: "Pizza", date: date, quantity: 6, vat: 5, unitPrice: 80),
                   ]);
 
               final pdfFile = await PdfInvoiceApi.generate(invoice);
@@ -45,7 +42,7 @@ class _HomePageState extends State<HomePage> {
               if (kDebugMode) {
                 print(pdfFile.path);
               }
-            }, child: Text("Genrate Invoice"))
+            }, child: const Text("Generate Invoice"))
           ],
         ),
       ),
